@@ -1,7 +1,7 @@
 #include <iostream>
-#include <stdlib.h>
 #include <fstream>
 
+#include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -10,7 +10,7 @@ using namespace std;
 class Accessdata
 {
 private:
-  int *atributos;
+  int * atributos;
   int qtdAtributos;
   string abreArquivo(string nomeDaClasse);
 
