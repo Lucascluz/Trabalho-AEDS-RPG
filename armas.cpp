@@ -10,15 +10,15 @@ Armas::Armas(string nomeArma)
     Accessdata *a = new Accessdata(qtdAtributos);
 
     int *atributos = a->obtemAtributos(nomeArma);
-
+    
     this->armaMax = atributos[0];
     this->armaMin = atributos[1];
-
+    
     delete a;
     delete atributos;
 };
 
-int Armas::danoFisico(){
+int Armas::danoFisico(string nomeArma){
     
     int dano = (rand() % this->armaMax) + this->armaMin;
 

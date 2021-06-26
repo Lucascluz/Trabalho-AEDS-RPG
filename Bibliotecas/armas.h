@@ -9,7 +9,6 @@
 #include <cstdlib>
 
 using namespace std;
-
 class Armas{
     private:
         string nome;
@@ -18,5 +17,5 @@ class Armas{
 
     public:
         Armas(string nomeArma);
-        int danoFisico();
+        int danoFisico(string nomeArma);
 };

@@ -9,6 +9,9 @@
 #include <ctime>
 #include <cstdlib>
 
+#include "armas.h"
+#include "magias.h"
+
 using namespace std;
 
 class Personagem{
@@ -24,21 +27,23 @@ int magia;
 int armadura;
 int resistencia;
 int agilidade;
-//string armaUsado;
+int numArmas;
+string armaUsando;
 
-/*
-Arma *arma;
-Magia *magia;
-*/
+Armas *armas;
+Magias *magias;
+
 int calculaEsquiva();
 
 public:
 
 Personagem(string classePersonagem);
 int retornaVida();
+int retornaMana();
 int atacar();
-int recebeDanoArma(int dano);
-int recebeDanoMagia(int dano);
+void recebeDanoArma();
+void recebeDanoMagia();
+void danoDeArmaRecebido();
 ~Personagem();
 
 };

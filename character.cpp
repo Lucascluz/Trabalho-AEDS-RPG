@@ -1,10 +1,13 @@
 #include "Bibliotecas/accessdata.h"
 #include "Bibliotecas/character.h"
+#include "Bibliotecas/armas.h"
+#include "Bibliotecas/magias.h"
 
 Personagem::Personagem(string classePersonagem)
 {
-    
-    int qtdAtributos = 7;
+    srand(time(0));
+
+    int qtdAtributos = 8;
 
     Accessdata *a = new Accessdata(qtdAtributos);
 
@@ -17,29 +20,59 @@ Personagem::Personagem(string classePersonagem)
     this->armadura = atributos[4];
     this->resistencia = atributos[5];
     this->agilidade = atributos[6];
-    //this->armas = atributos[7....]
+    this->numArmas = atributos[7]; 
+    /*
+    int j = 0;
+    for (int i = 8; i < this->numArmas; i++)
+     {
+         this->armas[j++] = 
+         Armas *a = new Armas(atributos[i]);
+     };
+    // Armas arma;
+    // for (int i = 7; i < this->numArmas; i++)
+    // {
+    //     this->armas[j++] = new Armas(atributos[i]);
+    // };
+    // this->armas =
+    /*
+    for(int i = nArmas; i < nGeral; i++){
 
-    delete a;
-    delete atributos;
+    }
+    */
+
+    // delete a;
+    // delete atributos;
 };
-
-
-
-
+/*
 int Personagem::calculaEsquiva()
 {
+    int esquiva = (rand() % 100) + 1;
 
+    if (esquiva <= this->agilidade)
+    {
+        return 1;
+    }
+
+    return 0;
 };
 
-int Personagem::recebeDanoArma(int dano)
+void Personagem::danoDeArmaRecebido()
 {
-    if (calculaEsquiva());
+    return (this->forca / 100) * danoFisico(this->armaUsando);
+};
+
+void Personagem::recebeDanoArma()
+{
+    if (calculaEsquiva() == 1)
+        ;
     return 0;
 
-    int danoDeArmaRecebido;
-    if (danoDeArmaRecebido > this->vida)
+    int danoTotal = danoDeArmaRecebido();
+
+    if (danoTotal > this->vida)
         this->vida = 0;
     else
-        this->vida -= danoDeArmaRecebido;
-    return danoDeArmaRecebido;
-};
+        this->vida -= danoTotal;
+
+    return danoTotal;
+};*/
