@@ -16,3 +16,5 @@ Magias::Magias(string nomeMagia)
     delete a;
     delete atributos;
 };
+
+

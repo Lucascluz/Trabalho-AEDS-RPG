@@ -6,15 +6,17 @@
 
 #include "Bibliotecas/accessdata.h"
 #include "Bibliotecas/character.h"
+#include "Bibliotecas/armas.h"
 
 using namespace std;
 
 void combatMenu()
 {
+    Personagem *p1, *p2;
     int choice;
     int choice2;
 
-    cout << "\n\t------------ Player2 -------------"
+    cout << "\n\t------------ Player 1 -------------"
          << "\n\tSelecione uma acao"
          << "\n 1 - Ataque com arma"
          << "\n 2 - Utiliza com magia"
@@ -28,7 +30,7 @@ void combatMenu()
     switch (choice)
     {
     case 1:
-
+        p1->atacar();
         break;
 
     case 2:
@@ -42,7 +44,7 @@ void combatMenu()
         break;
     }
 
-    cout << "\n\t------------ Player2 -------------"
+    cout << "\n\t------------ Player 2 -------------"
          << "\n\tSelecione uma acao"
          << "\n 1 - Ataque com arma"
          << "\n 2 - Utiliza com magia"
@@ -54,6 +56,7 @@ void combatMenu()
     switch (choice2)
     {
     case 1:
+    p1->atacar();
         break;
 
     case 2:
@@ -70,8 +73,13 @@ void combatMenu()
 void characterMenu()
 {
     Personagem *p1, *p2;
-
+    Armas *a1, *a2;
     int classe = 9;
+
+    a1 = new Armas(6);
+    //teste
+    cout << "\n\tPLAYER 1 ARMA";
+    a1->retornaValores();
 
     while (classe != 0)
     {
@@ -172,8 +180,20 @@ void characterMenu()
             break;
         }
     }
-   
-       
+    //teste
+    cout << "\n\tPLAYER 1 STATS";
+    p1->retornaAtributos();
+    cout << "\n\tPLAYER 2 STATS";
+    p2->retornaAtributos();
+    
+    a1 = new Armas(5);
+    //teste
+    cout << "\n\tPLAYER 1 ARMA";
+    a1->retornaValores();
+
+    a2 = new Armas(1);
+    cout << "\n\tPLAYER 2 ARMA";
+    a2->retornaValores();
 }
 
 void mainMenu()
@@ -191,7 +211,7 @@ void mainMenu()
         {
         case 1:
             characterMenu(); //função para selecionar sua classe
-
+            
             //função que inicia o jogo
             break;
 

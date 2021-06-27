@@ -11,11 +11,16 @@
 using namespace std;
 class Armas{
     private:
-        string nome;
         int armaMax;
-        int armaMin;    
+        int armaMin;
 
     public:
-        Armas(string nomeArma);
-        int danoFisico(string nomeArma);
+        Armas(int idArma);
+        void recebeArma(int idArma);
+        int danoFisico();
+        int retornaDanoMax();
+        int retornaDanoMin();
+        void retornaValores();
+        string nomeArma;
+        string nome;
 };

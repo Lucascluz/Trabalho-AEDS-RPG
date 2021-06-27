@@ -20,30 +20,60 @@ Personagem::Personagem(string classePersonagem)
     this->armadura = atributos[4];
     this->resistencia = atributos[5];
     this->agilidade = atributos[6];
-    this->numArmas = atributos[7]; 
+    this->numArmas = atributos[7];
+    this->armaAtiva = atributos[8];
+    
+
     /*
+    Armas *arma = new Armas(atributos[9]);
+
+    int x = 8 + this->numArmas;
     int j = 0;
-    for (int i = 8; i < this->numArmas; i++)
-     {
-         this->armas[j++] = 
-         Armas *a = new Armas(atributos[i]);
-     };
-    // Armas arma;
-    // for (int i = 7; i < this->numArmas; i++)
-    // {
-    //     this->armas[j++] = new Armas(atributos[i]);
-    // };
-    // this->armas =
-    /*
-    for(int i = nArmas; i < nGeral; i++){
 
-    }
-    */
-
-    // delete a;
-    // delete atributos;
+    for (int i = 8; i < x; i++)
+    {   
+        cout << "fsdfsdfsd\n\n";
+        Armas *arma = new Armas(atributos[i]);
+        cout << retornaDanoMax() <<"\n asdsasd\n";
+        armas[j++] = *arma;
+    }*/
 };
-/*
+
+int Personagem::atacar()
+{
+    int dano = armas->danoFisico();
+    dano = dano * (this->forca / 100);
+    //testa
+    cout << dano;
+
+    return dano;
+};
+
+int Personagem::recebeDanoArma(int dano)
+{
+}
+
+/*int j = 0;
+    for (int i = 8; i < this->numArmas; i++)
+    {
+        this->armas[j++] =
+            Armas *a = new Armas(atributos[i]);
+    };
+    Armas arma;
+    for (int i = 7; i < this->numArmas; i++)
+    {
+        this->armas[j++] = new Armas(atributos[i]);
+    };
+    this->armas =
+
+        for (int i = nArmas; i < nGeral; i++)
+    {
+    }
+
+    delete a;
+    delete atributos;
+};
+
 int Personagem::calculaEsquiva()
 {
     int esquiva = (rand() % 100) + 1;
@@ -74,5 +104,19 @@ void Personagem::recebeDanoArma()
     else
         this->vida -= danoTotal;
 
-    return danoTotal;
-};*/
+    return danoTotal;*/
+
+void Personagem::retornaAtributos()
+{
+    cout << "\n--------------------------------------------\n"
+         << "vida:        " << this->vida << "\n"
+         << "mana:        " << this->mana << "\n"
+         << "forca:       " << this->forca << "\n"
+         << "magia:       " << this->magia << "\n"
+         << "armadura:    " << this->armadura << "\n"
+         << "resistencia: " << this->resistencia << "\n"
+         << "agilidade:   " << this->agilidade << "\n"
+         << "num armas:   " << this->numArmas << "\n"
+         << "Arma padrao: " << this->armaAtiva << "\n"
+         << "\n--------------------------------------------\n";
+};

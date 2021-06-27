@@ -27,8 +27,10 @@ int magia;
 int armadura;
 int resistencia;
 int agilidade;
+int armaAtiva;
 int numArmas;
-string armaUsando;
+int arma;
+Armas *armaUsando;
 
 Armas *armas;
 Magias *magias;
@@ -38,11 +40,11 @@ int calculaEsquiva();
 public:
 
 Personagem(string classePersonagem);
-int retornaVida();
-int retornaMana();
+void retornaAtributos();
 int atacar();
-void recebeDanoArma();
-void recebeDanoMagia();
+int enfeiticar();
+int recebeDanoArma(int dano);
+int recebeDanoMagia();
 void danoDeArmaRecebido();
 ~Personagem();
 
