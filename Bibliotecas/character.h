@@ -6,46 +6,53 @@
 #include <stdio.h>
 
 //bibliotecas de para gerar numeros aleatorios
+
 #include <ctime>
 #include <cstdlib>
 
-#include "armas.h"
-#include "magias.h"
-
 using namespace std;
 
-class Personagem{
+class Personagem
+{
 private:
+    int vida;
+    int vidaMax;
+    int mana;
+    int manaMax;
+    int forca;
+    int magia;
+    int armadura;
+    int resistencia;
+    int agilidade;
+    int numArmas;
+    int idArma;
 
-string classe;
-string nome;
-
-int vida;
-int mana;
-int forca; 
-int magia;
-int armadura;
-int resistencia;
-int agilidade;
-int armaAtiva;
-int numArmas;
-int arma;
-Armas *armaUsando;
-
-Armas *armas;
-Magias *magias;
-
-int calculaEsquiva();
+    int calculaEsquiva();
 
 public:
+    Personagem();
+    //int aplicaDano(int danoAplicado);
 
-Personagem(string classePersonagem);
-void retornaAtributos();
-int atacar();
-int enfeiticar();
-int recebeDanoArma(int dano);
-int recebeDanoMagia();
-void danoDeArmaRecebido();
-~Personagem();
+    int calculaDanoArma(int danoArma);
+    int recebeDanoArma(int danoArma);
+    
 
+    void descansa();
+
+    void Guerreiro();
+    void Ladrao();
+    void Mago();
+    void Paladino();
+    void Animal();
+    void Troll();
+    void Dragao();
+    void Zumbi();
+
+    void retornaVidaMana();
+    void retornaAtributos();
+
+    //int atacar();
+    //int enfeiticar();
+
+    ~Personagem();
 };

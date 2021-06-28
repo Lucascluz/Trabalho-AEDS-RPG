@@ -4,236 +4,216 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "Bibliotecas/accessdata.h"
 #include "Bibliotecas/character.h"
-#include "Bibliotecas/armas.h"
+#include "Bibliotecas/weapon.h"
 
 using namespace std;
 
+Personagem *vetorPersona = new Personagem();
+Personagem *vetorPersona2 = new Personagem();
+Armas *vetorArma = new Armas();
+Armas *vetorArma2 = new Armas();
+int classe1, classe2;
+
 void combatMenu()
 {
-    Personagem *p1, *p2;
-    int choice;
-    int choice2;
+    int choice, choice2;
 
-    cout << "\n\t------------ Player 1 -------------"
-         << "\n\tSelecione uma acao"
-         << "\n 1 - Ataque com arma"
-         << "\n 2 - Utiliza com magia"
-         << "\n 3 - Trocar de arma"
-         << "\n 4 - Descansar";
+    vetorPersona->retornaVidaMana();
 
+    cout << "\n\tTurn: PLayer 1"
+         << "\n\t1 - Atacar com arma"
+         << "\t2 - Atacar com magia";
+    cout << "\n\t3 - Troca de arma"
+         << "\t4 - Descansar (+200 vida)"
+         << "\n";
     cin >> choice;
-
-    Armas *a1, *a2;
 
     switch (choice)
     {
     case 1:
-        p1->atacar();
+        vetorPersona2->recebeDanoArma(vetorArma->aplicaDano());
         break;
 
     case 2:
+    vetorPersona->retornaVidaMana();
+
         break;
 
     case 3:
 
         break;
 
+    case 4:
+        vetorPersona->descansa();
+        vetorPersona->retornaVidaMana();
+        break;
+
     default:
+
         break;
     }
+    vetorPersona2->retornaVidaMana();
 
-    cout << "\n\t------------ Player 2 -------------"
-         << "\n\tSelecione uma acao"
-         << "\n 1 - Ataque com arma"
-         << "\n 2 - Utiliza com magia"
-         << "\n 3 - Trocar de arma"
-         << "\n 4 - Descansar";
-
+    cout << "\n\tTurn: PLayer 2"
+         << "\n\t1 - Atacar com arma"
+         << "\t2 - Atacar com magia";
+    cout << "\n\t3 - Troca de arma"
+         << "\t4 - Descansar (+200 vida)";
     cin >> choice2;
 
     switch (choice2)
     {
     case 1:
-    p1->atacar();
+        vetorPersona->recebeDanoArma(vetorArma2->aplicaDano());
         break;
 
     case 2:
+    vetorPersona2->retornaVidaMana();
+
         break;
 
     case 3:
+
+        break;
+
+    case 4:
+        vetorPersona2->descansa();
+        vetorPersona2->retornaVidaMana();
         break;
 
     default:
+
         break;
     }
 }
 
 void characterMenu()
 {
-    Personagem *p1, *p2;
-    Armas *a1, *a2;
-    int classe = 9;
+    cout << "\n\t1 - Guerreiro "
+         << "\t2 - Ladrao";
+    cout << "\n\t3 - Mago      "
+         << "\t4 - Paladino";
+    cout << "\n\t5 - Animal    "
+         << "\t6 - Troll";
+    cout << "\n\t7 - Dragao    "
+         << "\t8 - Zumbi";
+    cout << "\n \n Player 1: "
+         << "\n";
+    cin >> classe1;
 
-    a1 = new Armas(6);
-    //teste
-    cout << "\n\tPLAYER 1 ARMA";
-    a1->retornaValores();
-
-    while (classe != 0)
+    switch (classe1)
     {
-        cout << "\nPlayer 1: ";
-        cin >> classe;
-
-        switch (classe)
-        {
-        case 1:
-
-            p1 = new Personagem("Personagens/animal.txt");
-            classe = 0;
-            break;
-
-        case 2:
-            p1 = new Personagem("Personagens/dragao.txt");
-            classe = 0;
-            break;
-
-        case 3:
-            p1 = new Personagem("Personagens/guerreiro.txt");
-            classe = 0;
-            break;
-
-        case 4:
-            p1 = new Personagem("Personagens/ladrao.txt");
-            classe = 0;
-            break;
-
-        case 5:
-            p1 = new Personagem("Personagens/mago.txt");
-            classe = 0;
-            break;
-
-        case 6:
-            p1 = new Personagem("Personagens/paladino.txt");
-            classe = 0;
-            break;
-
-        case 7:
-            p1 = new Personagem("Personagens/troll.txt");
-            classe = 0;
-            break;
-
-        case 8:
-            p1 = new Personagem("Personagens/zumbi.txt");
-            classe = 0;
-            break;
-        }
+    case 1:
+        vetorPersona->Guerreiro();
+        vetorArma->Porrete();
+        break;
+    case 2:
+        vetorPersona->Ladrao();
+        vetorArma->Cajado();
+        break;
+    case 3:
+        vetorPersona->Mago();
+        vetorArma->Cajado();
+        break;
+    case 4:
+        vetorPersona->Paladino();
+        vetorArma->TridenteSagrado();
+        break;
+    case 5:
+        vetorPersona->Animal();
+        vetorArma->GarraLetal();
+        break;
+    case 6:
+        vetorPersona->Troll();
+        vetorArma->Cajado();
+        break;
+    case 7:
+        vetorPersona->Dragao();
+        vetorArma->GarraLetal();
+        break;
+    case 8:
+        vetorPersona->Zumbi();
+        vetorArma->Cajado();
+        break;
     }
+    vetorPersona->retornaAtributos();
+    vetorArma->retornaStatus();
 
-    classe = 9;
-    while (classe != 0)
+    cout << "\n"
+         << " Player 2: "
+         << "\n";
+    cin >> classe2;
+    switch (classe2)
     {
-        cout << "\nPlayer 2: ";
-        cin >> classe;
-
-        switch (classe)
-        {
-        case 1:
-            p2 = new Personagem("Personagens/animal.txt");
-            classe = 0;
-            break;
-
-        case 2:
-            p2 = new Personagem("Personagens/dragao.txt");
-            classe = 0;
-            break;
-
-        case 3:
-            p2 = new Personagem("Personagens/guerreiro.txt");
-            classe = 0;
-            break;
-
-        case 4:
-            p2 = new Personagem("Personagens/ladrao.txt");
-            classe = 0;
-            break;
-
-        case 5:
-            p2 = new Personagem("Personagens/mago.txt");
-            classe = 0;
-            break;
-
-        case 6:
-            p2 = new Personagem("Personagens/paladino.txt");
-            classe = 0;
-            break;
-
-        case 7:
-            p2 = new Personagem("Personagens/troll.txt");
-            classe = 0;
-            break;
-
-        case 8:
-            p2 = new Personagem("Personagens/zumbi.txt");
-            classe = 0;
-            break;
-        }
+    case 1:
+        vetorPersona2->Guerreiro();
+        vetorArma2->Porrete();
+        break;
+    case 2:
+        vetorPersona2->Ladrao();
+        vetorArma2->Cajado();
+        break;
+    case 3:
+        vetorPersona2->Mago();
+        vetorArma2->Cajado();
+        break;
+    case 4:
+        vetorPersona2->Paladino();
+        vetorArma2->TridenteSagrado();
+        break;
+    case 5:
+        vetorPersona2->Animal();
+        vetorArma2->GarraLetal();
+        break;
+    case 6:
+        vetorPersona2->Troll();
+        vetorArma2->Cajado();
+    case 7:
+        vetorPersona2->Dragao();
+        vetorArma2->GarraLetal();
+        break;
+    case 8:
+        vetorPersona2->Zumbi();
+        vetorArma2->Cajado();
+        break;
     }
-    //teste
-    cout << "\n\tPLAYER 1 STATS";
-    p1->retornaAtributos();
-    cout << "\n\tPLAYER 2 STATS";
-    p2->retornaAtributos();
-    
-    a1 = new Armas(5);
-    //teste
-    cout << "\n\tPLAYER 1 ARMA";
-    a1->retornaValores();
-
-    a2 = new Armas(1);
-    cout << "\n\tPLAYER 2 ARMA";
-    a2->retornaValores();
+    vetorPersona2->retornaAtributos();
+    vetorArma2->retornaStatus();
 }
 
-void mainMenu()
+int main()
 {
+    cout << "------------ Bem vindo ao RPG de AEDS ------------";
     int jogo = 0; //variavel para iniciar o jogo ou sair
 
     while (jogo != 2)
     {
 
         cout << "\n \n 1. Novo Jogo";
-        cout << "\n 2.Sair do programa\n";
+        cout << "\n2. Sair do Jogo\n";
         cin >> jogo;
 
         switch (jogo)
         {
         case 1:
-            characterMenu(); //função para selecionar sua classe
-            
-            //função que inicia o jogo
+            characterMenu();
+            for (int i = 1; i != 0; i++)
+            {
+                combatMenu();
+            }
+            jogo = 0;
             break;
 
-        case 2: //Editar DEPOIS
+        case 2:
             cout << "\n\tCreditos"
                  << "\n Jogo desenvolvido pro:\n Gabriel Lucchesi\n Lucas Carvalho da Luz"
                  << "\n Feito em 28 de junho de 2021 "
-                 << "\n Desenvolvido para: disciplina Algoritmos e Estudo de Dados - 1º periodo - Puc Minas"
+                 << "\n Desenvolvido para: disciplina Algoritmos e Estudo de Dados - 1 periodo - Puc Minas"
                  << "\n\t------------ Obrigado por Jogar ------------\n";
-            break;
-
-        default:
-            cout << "\n----------- Número Inválido -----------";
             break;
         }
     }
-}
-
-int main()
-{
-    cout << "------------ Bem vindo ao RPG de AEDS ------------";
-    mainMenu();
 
     return 0;
 }

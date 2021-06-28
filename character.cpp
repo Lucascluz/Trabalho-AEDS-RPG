@@ -1,77 +1,141 @@
-#include "Bibliotecas/accessdata.h"
 #include "Bibliotecas/character.h"
-#include "Bibliotecas/armas.h"
-#include "Bibliotecas/magias.h"
+#include "Bibliotecas/weapon.h"
 
-Personagem::Personagem(string classePersonagem)
+Personagem::Personagem()
 {
     srand(time(0));
 
-    int qtdAtributos = 8;
-
-    Accessdata *a = new Accessdata(qtdAtributos);
-
-    int *atributos = a->obtemAtributos(classePersonagem);
-
-    this->vida = atributos[0];
-    this->mana = atributos[1];
-    this->forca = atributos[2];
-    this->magia = atributos[3];
-    this->armadura = atributos[4];
-    this->resistencia = atributos[5];
-    this->agilidade = atributos[6];
-    this->numArmas = atributos[7];
-    this->armaAtiva = atributos[8];
-    
-
-    /*
-    Armas *arma = new Armas(atributos[9]);
-
-    int x = 8 + this->numArmas;
-    int j = 0;
-
-    for (int i = 8; i < x; i++)
-    {   
-        cout << "fsdfsdfsd\n\n";
-        Armas *arma = new Armas(atributos[i]);
-        cout << retornaDanoMax() <<"\n asdsasd\n";
-        armas[j++] = *arma;
-    }*/
-};
-
-int Personagem::atacar()
-{
-    int dano = armas->danoFisico();
-    dano = dano * (this->forca / 100);
-    //testa
-    cout << dano;
-
-    return dano;
-};
-
-int Personagem::recebeDanoArma(int dano)
-{
+    vida = 0;
+    mana = 0;
+    forca = 0;
+    magia = 0;
+    armadura = 0;
+    resistencia = 0;
+    agilidade = 0;
+    numArmas = 0;
+    idArma = 0;
 }
 
-/*int j = 0;
-    for (int i = 8; i < this->numArmas; i++)
-    {
-        this->armas[j++] =
-            Armas *a = new Armas(atributos[i]);
-    };
-    Armas arma;
-    for (int i = 7; i < this->numArmas; i++)
-    {
-        this->armas[j++] = new Armas(atributos[i]);
-    };
-    this->armas =
+Personagem *perso = new Personagem();
 
-        for (int i = nArmas; i < nGeral; i++)
-    {
-    }
+void Personagem::Guerreiro()
+{
+    perso->vida = 4000;
+    perso->vidaMax = 4000;
+    perso->mana = 30;
+    perso->manaMax = 30;
+    perso->forca = 100;
+    perso->magia = 20;
+    perso->armadura = 80;
+    perso->resistencia = 20;
+    perso->agilidade = 20;
+    perso->numArmas = 2;
+    perso->idArma = 4;
+};
 
-    delete a;
-    delete atributos;
+void Personagem::Ladrao()
+{
+    perso->vida = 2800;
+    perso->vidaMax = 2800;
+    perso->mana = 50;
+    perso->manaMax = 50;
+    perso->forca = 50;
+    perso->magia = 30;
+    perso->armadura = 40;
+    perso->resistencia = 50;
+    perso->agilidade = 80;
+    perso->numArmas = 4;
+    perso->idArma = 5;
+};
+
+void Personagem::Mago()
+{
+    perso->vida = 2500;
+    perso->vidaMax = 2500;
+    perso->mana = 100;
+    perso->manaMax = 100;
+    perso->forca = 40;
+    perso->magia = 100;
+    perso->armadura = 30;
+    perso->resistencia = 80;
+    perso->agilidade = 40;
+    perso->numArmas = 2;
+    perso->idArma = 5;
+};
+
+void Personagem::Paladino()
+{
+    perso->vida = 3200;
+    perso->vidaMax = 3200;
+    perso->mana = 80;
+    perso->manaMax = 80;
+    perso->forca = 60;
+    perso->magia = 50;
+    perso->armadura = 60;
+    perso->resistencia = 60;
+    perso->agilidade = 60;
+    perso->numArmas = 2;
+    perso->idArma = 2;
+};
+
+void Personagem::Animal()
+{
+    perso->vida = 3200;
+    perso->vidaMax = 3200;
+    perso->mana = 30;
+    perso->manaMax = 30;
+    perso->forca = 100;
+    perso->magia = 20;
+    perso->armadura = 80;
+    perso->resistencia = 20;
+    perso->agilidade = 50;
+    perso->numArmas = 1;
+    perso->idArma = 1;
+};
+
+void Personagem::Troll()
+{
+    perso->vida = 2800;
+    perso->vidaMax = 2800;
+    perso->mana = 20;
+    perso->manaMax = 20;
+    perso->forca = 100;
+    perso->magia = 20;
+    perso->armadura = 80;
+    perso->resistencia = 20;
+    perso->agilidade = 20;
+    perso->numArmas = 2;
+    perso->idArma = 5;
+};
+
+void Personagem::Dragao()
+{
+    perso->vida = 3000;
+    perso->vidaMax = 3000;
+    perso->mana = 40;
+    perso->manaMax = 40;
+    perso->forca = 100;
+    perso->magia = 20;
+    perso->armadura = 50;
+    perso->resistencia = 50;
+    perso->agilidade = 30;
+    perso->numArmas = 1;
+    perso->idArma = 1;
+};
+
+void Personagem::Zumbi()
+{
+    perso->vida = 2500;
+    perso->vidaMax = 2500;
+    perso->mana = 20;
+    perso->manaMax = 20;
+    perso->forca = 40;
+    perso->magia = 20;
+    perso->armadura = 40;
+    perso->resistencia = 80;
+    perso->agilidade = 50;
+    perso->numArmas = 3;
+    perso->idArma = 1;
 };
 
 int Personagem::calculaEsquiva()
@@ -86,37 +150,64 @@ int Personagem::calculaEsquiva()
     return 0;
 };
 
-void Personagem::danoDeArmaRecebido()
+int Personagem::calculaDanoArma(int danoArma)
 {
-    return (this->forca / 100) * danoFisico(this->armaUsando);
+    return (perso->forca * danoArma) / 100;
 };
 
-void Personagem::recebeDanoArma()
+int Personagem::recebeDanoArma(int danoArma)
 {
-    if (calculaEsquiva() == 1)
-        ;
-    return 0;
+    cout << "\nteste3\n";
 
-    int danoTotal = danoDeArmaRecebido();
+    if (calculaEsquiva() == 1)
+    {
+        cout << "\n\tESQUIVOU!\n";
+        return 0;
+    }
+
+    cout << "\nteste4\n";
+
+    int danoTotal = calculaDanoArma(danoArma);
+
+    cout << danoTotal;
 
     if (danoTotal > this->vida)
         this->vida = 0;
     else
         this->vida -= danoTotal;
 
-    return danoTotal;*/
+    cout << "\t" << danoTotal;
+
+    return danoTotal;
+};
+
+void Personagem::descansa()
+{
+    if ((perso->vida + 200) >= perso->vidaMax)
+        vida = vidaMax;
+    else
+        vida = vida + 200;
+};
+
+//int Personagem::atacar(){};
+
+void Personagem::retornaVidaMana()
+{
+    cout << "\n--------------------------------------------\n"
+         << "vida:        " << perso->vida << "\n"
+         << "mana:        " << perso->mana << "\n"
+         << "\n--------------------------------------------\n";
+};
 
 void Personagem::retornaAtributos()
 {
     cout << "\n--------------------------------------------\n"
-         << "vida:        " << this->vida << "\n"
-         << "mana:        " << this->mana << "\n"
-         << "forca:       " << this->forca << "\n"
-         << "magia:       " << this->magia << "\n"
-         << "armadura:    " << this->armadura << "\n"
-         << "resistencia: " << this->resistencia << "\n"
-         << "agilidade:   " << this->agilidade << "\n"
-         << "num armas:   " << this->numArmas << "\n"
-         << "Arma padrao: " << this->armaAtiva << "\n"
+         << "vida:        " << perso->vida << "\n"
+         << "mana:        " << perso->mana << "\n"
+         << "forca:       " << perso->forca << "\n"
+         << "magia:       " << perso->magia << "\n"
+         << "armadura:    " << perso->armadura << "\n"
+         << "resistencia: " << perso->resistencia << "\n"
+         << "agilidade:   " << perso->agilidade << "\n"
          << "\n--------------------------------------------\n";
 };
