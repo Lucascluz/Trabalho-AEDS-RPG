@@ -15,7 +15,6 @@ using namespace std;
 class Personagem
 {
 private:
-    int vida;
     int vidaMax;
     int mana;
     int manaMax;
@@ -24,18 +23,17 @@ private:
     int armadura;
     int resistencia;
     int agilidade;
-    int numArmas;
-    int idArma;
 
     int calculaEsquiva();
 
 public:
+    int vida;
+
     Personagem();
     //int aplicaDano(int danoAplicado);
 
     int calculaDanoArma(int danoArma);
     int recebeDanoArma(int danoArma);
-    
 
     void descansa();
 
@@ -49,6 +47,7 @@ public:
     void Zumbi();
 
     void retornaVidaMana();
+    int retornaForca();
     void retornaAtributos();
 
     //int atacar();

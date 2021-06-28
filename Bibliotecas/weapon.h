@@ -22,7 +22,7 @@ private:
 public:
     Armas();
 
-    int aplicaDano();
+    int aplicaDano(int forca);
     void retornaStatus();
     void GarraLetal();
     void TridenteSagrado();

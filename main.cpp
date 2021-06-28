@@ -15,7 +15,7 @@ Armas *vetorArma = new Armas();
 Armas *vetorArma2 = new Armas();
 int classe1, classe2;
 
-void combatMenu()
+int combatMenu(int *i)
 {
     int choice, choice2;
 
@@ -23,20 +23,20 @@ void combatMenu()
 
     cout << "\n\tTurn: PLayer 1"
          << "\n\t1 - Atacar com arma"
-         << "\t2 - Atacar com magia";
-    cout << "\n\t3 - Troca de arma"
+         << "\t2 - Atacar com magia"
+         << "\n\t3 - Troca de arma"
          << "\t4 - Descansar (+200 vida)"
-         << "\n";
+         << "\n\t5 - Sair da partida\nOption: ";
     cin >> choice;
 
     switch (choice)
     {
     case 1:
-        vetorPersona2->recebeDanoArma(vetorArma->aplicaDano());
+        vetorPersona2->recebeDanoArma(vetorArma->aplicaDano(vetorPersona->retornaForca()));
         break;
 
     case 2:
-    vetorPersona->retornaVidaMana();
+        vetorPersona->retornaVidaMana();
 
         break;
 
@@ -49,42 +49,55 @@ void combatMenu()
         vetorPersona->retornaVidaMana();
         break;
 
+    case 5:
+        *i = 0;
+        break;
+
     default:
 
         break;
     }
-    vetorPersona2->retornaVidaMana();
 
-    cout << "\n\tTurn: PLayer 2"
-         << "\n\t1 - Atacar com arma"
-         << "\t2 - Atacar com magia";
-    cout << "\n\t3 - Troca de arma"
-         << "\t4 - Descansar (+200 vida)";
-    cin >> choice2;
-
-    switch (choice2)
+    if (*i != 5)
     {
-    case 1:
-        vetorPersona->recebeDanoArma(vetorArma2->aplicaDano());
-        break;
-
-    case 2:
-    vetorPersona2->retornaVidaMana();
-
-        break;
-
-    case 3:
-
-        break;
-
-    case 4:
-        vetorPersona2->descansa();
         vetorPersona2->retornaVidaMana();
-        break;
 
-    default:
+        cout << "\n\tTurn: PLayer 2"
+             << "\n\t1 - Atacar com arma"
+             << "\t2 - Atacar com magia"
+             << "\n\t3 - Troca de arma"
+             << "\t4 - Descansar (+200 vida)"
+             << "\n\t5 - Sair da partida\nOption: ";
+        cin >> choice2;
 
-        break;
+        switch (choice2)
+        {
+        case 1:
+            vetorPersona->recebeDanoArma(vetorArma2->aplicaDano(vetorPersona2->retornaForca()));
+            break;
+
+        case 2:
+            vetorPersona2->retornaVidaMana();
+
+            break;
+
+        case 3:
+
+            break;
+
+        case 4:
+            vetorPersona2->descansa();
+            vetorPersona2->retornaVidaMana();
+            break;
+
+        case 5:
+            *i = 0;
+            break;
+
+        default:
+
+            break;
+        }
     }
 }
 
@@ -99,7 +112,7 @@ void characterMenu()
     cout << "\n\t7 - Dragao    "
          << "\t8 - Zumbi";
     cout << "\n \n Player 1: "
-         << "\n";
+         << "\nOption: ";
     cin >> classe1;
 
     switch (classe1)
@@ -136,13 +149,13 @@ void characterMenu()
         vetorPersona->Zumbi();
         vetorArma->Cajado();
         break;
+    default:
+        break;
     }
-    vetorPersona->retornaAtributos();
-    vetorArma->retornaStatus();
 
     cout << "\n"
          << " Player 2: "
-         << "\n";
+         << "\nOption: ";
     cin >> classe2;
     switch (classe2)
     {
@@ -177,7 +190,15 @@ void characterMenu()
         vetorPersona2->Zumbi();
         vetorArma2->Cajado();
         break;
+    default:
+        break;
     }
+
+    cout << "\n Player 1 stats \n";
+    vetorPersona->retornaAtributos();
+    vetorArma->retornaStatus();
+
+    cout << "\n Player 2 stats \n";
     vetorPersona2->retornaAtributos();
     vetorArma2->retornaStatus();
 }
@@ -185,13 +206,13 @@ void characterMenu()
 int main()
 {
     cout << "------------ Bem vindo ao RPG de AEDS ------------";
-    int jogo = 0; //variavel para iniciar o jogo ou sair
+    int jogo = 0;
 
     while (jogo != 2)
     {
-
-        cout << "\n \n 1. Novo Jogo";
-        cout << "\n2. Sair do Jogo\n";
+        cout << "\n1. Novo Jogo\n"
+             << "\n2. Sair do programa"
+             << "\nOption: ";
         cin >> jogo;
 
         switch (jogo)
@@ -200,20 +221,21 @@ int main()
             characterMenu();
             for (int i = 1; i != 0; i++)
             {
-                combatMenu();
+                cout << "\n \n------------------------- Turno " << i << " -------------------------";
+                combatMenu(&i);
             }
+            cout << "\n----- Fim de Jogo -----\n";
             jogo = 0;
             break;
 
         case 2:
-            cout << "\n\tCreditos"
+            cout << "\n\n\n\tCreditos"
                  << "\n Jogo desenvolvido pro:\n Gabriel Lucchesi\n Lucas Carvalho da Luz"
                  << "\n Feito em 28 de junho de 2021 "
                  << "\n Desenvolvido para: disciplina Algoritmos e Estudo de Dados - 1 periodo - Puc Minas"
-                 << "\n\t------------ Obrigado por Jogar ------------\n";
+                 << "\n\t------------ Obrigado por Jogar ------------\n\n\n";
             break;
         }
     }
-
     return 0;
 }
