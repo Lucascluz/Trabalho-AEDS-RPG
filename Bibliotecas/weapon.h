@@ -11,11 +11,9 @@
 #include <cstdlib>
 
 using namespace std;
-
 class Armas
 {
 private:
-    string nome;
     int danoMax;
     int danoMin;
 
@@ -23,7 +21,9 @@ public:
     Armas();
 
     int aplicaDano(int forca);
+    int danoBulkathos(int forca);
     void retornaStatus();
+
     void GarraLetal();
     void TridenteSagrado();
     void EspadaBarroca();
@@ -31,6 +31,8 @@ public:
     void Cajado();
     void Besta();
     void EsferaDeAtaque();
+    void Bulkathos();
 
-     ~Armas();
+
+    ~Armas();
 };

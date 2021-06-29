@@ -1,5 +1,6 @@
 #include "Bibliotecas/character.h"
 #include "Bibliotecas/weapon.h"
+#include "Bibliotecas/magic.h"
 
 Armas::Armas()
 {
@@ -51,11 +52,28 @@ void Armas::TridenteSagrado()
     this->danoMin = 220;
 };
 
+void Armas::Bulkathos(){
+    this->danoMax = 900;
+    this->danoMin = 500;
+}
+
+int Armas::danoBulkathos(int forca)
+{
+    int dano = this->danoMin + (rand() % (this->danoMax - this->danoMin));
+
+    if(rand() % 3 == 0){
+        return dano * 2;
+    }
+    else{
+        return dano;
+    }
+};
+
 int Armas::aplicaDano(int forca)
 {
-    int x = this->danoMin + (rand() % this->danoMax - this->danoMin);
-
-    return (forca * x) / 100;
+    int dano = this->danoMin + (rand() % (this->danoMax - this->danoMin));
+    
+    return dano + ((forca * dano) / 100);
 };
 
 void Armas::retornaStatus()

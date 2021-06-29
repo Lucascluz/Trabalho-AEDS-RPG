@@ -33,9 +33,22 @@ public:
     //int aplicaDano(int danoAplicado);
 
     int calculaDanoArma(int danoArma);
-    int recebeDanoArma(int danoArma);
 
-    void descansa();
+    int recebeDanoArma(int danoArma);
+    int recebeDanoMagia(int danoMagia);
+
+    int retornaForca();
+    int retornaMagia();
+    int retornaVida();
+    int retornaMana(int custo);
+
+    int verificaMana();
+
+    void retornaVidaMana();
+    void retornaAtributos();
+
+    void recuperaMana();
+    void recuperaVida();
 
     void Guerreiro();
     void Ladrao();
@@ -45,13 +58,6 @@ public:
     void Troll();
     void Dragao();
     void Zumbi();
-
-    void retornaVidaMana();
-    int retornaForca();
-    void retornaAtributos();
-
-    //int atacar();
-    //int enfeiticar();
 
     ~Personagem();
 };

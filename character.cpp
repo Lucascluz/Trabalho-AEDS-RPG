@@ -1,5 +1,6 @@
 #include "Bibliotecas/character.h"
 #include "Bibliotecas/weapon.h"
+#include "Bibliotecas/magic.h"
 
 Personagem::Personagem()
 {
@@ -132,8 +133,12 @@ int Personagem::recebeDanoArma(int danoArma)
 {
     if (calculaEsquiva() == 1)
     {
-        cout << "\n\tESQUIVOU!\n";
+        cout << "\t\tOponete Esquivou\n";
         return 0;
+    }
+    else
+    {
+        cout << "\t\tVoce causou " << (((danoArma * this->armadura) / 100) - danoArma) * -1 << " de dano\n";
     }
 
     if (danoArma >= this->vida + (danoArma * this->armadura) / 100)
@@ -142,7 +147,17 @@ int Personagem::recebeDanoArma(int danoArma)
         this->vida = (this->vida + ((danoArma * this->armadura) / 100)) - danoArma;
 };
 
-void Personagem::descansa()
+int Personagem::recebeDanoMagia(int danoMagia)
+{
+    cout << "\t\tVoce causou " << (((danoMagia * this->resistencia) / 100) - danoMagia) * -1 << " de dano\n";
+
+    if (danoMagia >= this->vida + (danoMagia * this->resistencia) / 100)
+        this->vida = 0;
+    else
+        this->vida = (this->vida + ((danoMagia * this->resistencia) / 100)) - danoMagia;
+};
+
+void Personagem::recuperaVida()
 {
     if ((this->vida + 200) >= this->vidaMax)
         this->vida = this->vidaMax;
@@ -150,17 +165,55 @@ void Personagem::descansa()
         this->vida = this->vida + 200;
 };
 
-//int Personagem::atacar(){};
+void Personagem::recuperaMana()
+{
+  if ((this->mana + 10) >= this->manaMax)
+        this->mana = this->manaMax;
+    else
+        this->mana = this->mana + 10;  
+}
 
 void Personagem::retornaVidaMana()
 {
-    cout << "\n--------------------------------------------\n"
-         << "Vida: " << this->vida << "\t" << "mana: " << this->mana << "\n";
+    cout << "   " << this->vida << "Hp | " << this->mana << "Mp"
+         << "   ";
 };
 
 int Personagem::retornaForca()
 {
     return this->forca;
+    if ((this->mana + 15) >= this->manaMax)
+        this->mana = this->manaMax;
+    else
+        this->mana = this->mana + 15;
+};
+
+int Personagem::retornaVida()
+{
+    return this->vida;
+};
+
+int Personagem::retornaMana(int custo)
+{
+    if (this->mana <= custo)
+        this->mana = 0;
+    else if (this->mana >= custo)
+        this->mana = mana - custo;
+
+    return this->mana;
+};
+
+int Personagem::retornaMagia()
+{
+    return this->magia;
+};
+
+int Personagem::verificaMana()
+{
+    if (mana == manaMax)
+    return 2;
+    else
+    return 1;
 };
 
 void Personagem::retornaAtributos()
@@ -172,17 +225,5 @@ void Personagem::retornaAtributos()
          << "magia:       " << this->magia << "\n"
          << "armadura:    " << this->armadura << "\n"
          << "resistencia: " << this->resistencia << "\n"
-         << "agilidade:   " << this->agilidade << "\n"
-         << "--------------------------------------------\n";
-};
-
-Personagem::~Personagem()
-{
-delete &this->vida;
-delete &this->mana;
-delete &this->forca;
-delete &this->magia;
-delete &this->armadura;
-delete &this->resistencia;
-delete &this->agilidade;
+         << "agilidade:   " << this->agilidade << "\n";
 };
