@@ -62,10 +62,10 @@ int Armas::danoBulkathos(int forca)
     int dano = this->danoMin + (rand() % (this->danoMax - this->danoMin));
 
     if(rand() % 3 == 0){
-        return dano * 2;
+        return (dano + ((forca * dano) / 100)) * 2;
     }
     else{
-        return dano;
+        return dano + ((forca * dano) / 100);
     }
 };
 

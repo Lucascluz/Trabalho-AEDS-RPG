@@ -32,7 +32,7 @@ int combatMenu()
 
         cout << "\nAtacando - Player 1";
         vetorPersona->retornaVidaMana();
-        
+
         if (durabilidade <= 0)
         {
             switch (classe1)
@@ -71,11 +71,12 @@ int combatMenu()
         cout << "\nDefendendo - Player 2";
         vetorPersona2->retornaVidaMana();
 
+        cout << "\n";
         bulkathos = (rand() % 50) + 1;
         if (bulkathos == 1)
         {
             vetorArma->Bulkathos();
-            cout << "\n----Voce recebeu o VOTO SOLENE DE BUL-KATHOS----\n";
+            cout << "----Voce recebeu o VOTO SOLENE DE BUL-KATHOS----\n";
             durabilidade = 1;
         }
 
@@ -339,12 +340,13 @@ int combatMenu()
             break;
         }
 
-        if(vetorPersona2->retornaVida() == 0){
+        if (vetorPersona2->retornaVida() == 0)
+        {
             cout << "\n------------ !! PLAYER 1 VENCEU !! ------------";
             i = -1;
         }
 
-        if(i > 0)
+        if (i > 0)
         {
             bulkathos = 0;
             cout << "\n---------------------------------------------------------";
@@ -390,11 +392,12 @@ int combatMenu()
             cout << "\nDefendendo - Player 1";
             vetorPersona->retornaVidaMana();
 
+            cout << "\n";
             bulkathos = (rand() % 50) + 1;
             if (bulkathos == 1)
             {
                 vetorArma2->Bulkathos();
-                cout << "\n----Voce recebeu o VOTO SOLENE DE BUL-KATHOS----\n";
+                cout << "----Voce recebeu o VOTO SOLENE DE BUL-KATHOS----\n";
                 durabilidade2 = 1;
             }
 
@@ -411,7 +414,7 @@ int combatMenu()
             case 0:
                 i = -1;
                 break;
-            
+
             case 1:
                 vetorPersona2->recuperaMana();
                 if (bulkathos == 1)
@@ -449,7 +452,8 @@ int combatMenu()
                             cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                             vetorPersona2->recuperaMana();
                         }
-                        else{
+                        else
+                        {
                             vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                         }
                         break;
@@ -468,7 +472,8 @@ int combatMenu()
                                 cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                                 vetorPersona2->recuperaMana();
                             }
-                            else{
+                            else
+                            {
                                 vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                             }
                             break;
@@ -479,7 +484,8 @@ int combatMenu()
                                 cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                                 vetorPersona2->recuperaMana();
                             }
-                            else{
+                            else
+                            {
                                 vetorPersona2->recuperaVida();
                                 vetorPersona2->recuperaVida();
                             }
@@ -491,7 +497,8 @@ int combatMenu()
                                 cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                                 vetorPersona2->recuperaMana();
                             }
-                            else{
+                            else
+                            {
                                 vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                             }
                             break;
@@ -502,7 +509,8 @@ int combatMenu()
                                 cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                                 vetorPersona2->recuperaMana();
                             }
-                            else{
+                            else
+                            {
                                 vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                             }
                             break;
@@ -513,7 +521,8 @@ int combatMenu()
                                 cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                                 vetorPersona2->recuperaMana();
                             }
-                            else{
+                            else
+                            {
                                 vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                             }
                             break;
@@ -539,7 +548,8 @@ int combatMenu()
                             cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                             vetorPersona2->recuperaMana();
                         }
-                        else{
+                        else
+                        {
                             vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                         }
                         break;
@@ -552,7 +562,8 @@ int combatMenu()
                         cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                         vetorPersona2->recuperaMana();
                     }
-                    else{
+                    else
+                    {
                         vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
                     }
                 }
@@ -651,7 +662,7 @@ int combatMenu()
             }
         }
         bulkathos = 0;
-        if(vetorPersona->retornaVida() == 0)
+        if (vetorPersona->retornaVida() == 0)
         {
             cout << "\n------------ !! PLAYER 2 VENCEU !! ------------";
             i = -1;
