@@ -30,26 +30,26 @@ void Personagem::Ladrao()
 {
     this->vida = 2800;
     this->vidaMax = 2800;
-    this->mana = 50;
-    this->manaMax = 50;
+    this->mana = 60;
+    this->manaMax = 60;
     this->forca = 50;
-    this->magia = 30;
-    this->armadura = 40;
-    this->resistencia = 50;
+    this->magia = 40;
+    this->armadura = 20;
+    this->resistencia = 60;
     this->agilidade = 80;
 };
 
 void Personagem::Mago()
 {
-    this->vida = 2500;
-    this->vidaMax = 2500;
+    this->vida = 2750;
+    this->vidaMax = 2750;
     this->mana = 100;
     this->manaMax = 100;
     this->forca = 40;
     this->magia = 100;
     this->armadura = 30;
     this->resistencia = 80;
-    this->agilidade = 40;
+    this->agilidade = 20;
 };
 
 void Personagem::Paladino()
@@ -67,28 +67,28 @@ void Personagem::Paladino()
 
 void Personagem::Animal()
 {
-    this->vida = 3200;
-    this->vidaMax = 3200;
-    this->mana = 30;
-    this->manaMax = 30;
+    this->vida = 3500;
+    this->vidaMax = 3500;
+    this->mana = 40;
+    this->manaMax = 4040;
     this->forca = 100;
     this->magia = 20;
     this->armadura = 80;
-    this->resistencia = 20;
-    this->agilidade = 50;
+    this->resistencia = 40;
+    this->agilidade = 60;
 };
 
 void Personagem::Troll()
 {
     this->vida = 2800;
     this->vidaMax = 2800;
-    this->mana = 20;
-    this->manaMax = 20;
+    this->mana = 40;
+    this->manaMax = 40;
     this->forca = 100;
-    this->magia = 20;
-    this->armadura = 80;
-    this->resistencia = 20;
-    this->agilidade = 20;
+    this->magia = 30;
+    this->armadura = 70;
+    this->resistencia = 40;
+    this->agilidade = 30;
 };
 
 void Personagem::Dragao()
@@ -98,22 +98,22 @@ void Personagem::Dragao()
     this->mana = 40;
     this->manaMax = 40;
     this->forca = 100;
-    this->magia = 20;
-    this->armadura = 50;
+    this->magia = 100;
+    this->armadura = 40;
     this->resistencia = 50;
     this->agilidade = 30;
 };
 
 void Personagem::Zumbi()
 {
-    this->vida = 2500;
+    this->vida = 5000;
     this->vidaMax = 2500;
-    this->mana = 20;
-    this->manaMax = 20;
+    this->mana = 60;
+    this->manaMax = 60;
     this->forca = 40;
     this->magia = 20;
-    this->armadura = 40;
-    this->resistencia = 80;
+    this->armadura = 80;
+    this->resistencia = 100;
     this->agilidade = 50;
 };
 
@@ -133,7 +133,7 @@ int Personagem::recebeDanoArma(int danoArma)
 {
     if (calculaEsquiva() == 1)
     {
-        cout << "\t\tOponete Esquivou\n";
+        cout << "\t\tOPONETE ESQUIVOU\n";
         return 0;
     }
     else

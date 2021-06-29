@@ -12,38 +12,38 @@ Armas::Armas()
 
 void Armas::Besta()
 {
-    this->danoMax = 420;
-    this->danoMin = 220;
+    this->danoMax = 480;
+    this->danoMin = 320;
 };
 
 void Armas::Cajado()
 {
     this->danoMax = 200;
-    this->danoMin = 50;
+    this->danoMin = 100;
 };
 
 void Armas::EsferaDeAtaque()
 {
-    this->danoMax = 400;
-    this->danoMin = 200;
+    this->danoMax = 450;
+    this->danoMin = 300;
 };
 
 void Armas::EspadaBarroca()
 {
-    this->danoMax = 500;
-    this->danoMin = 300;
+    this->danoMax = 550;
+    this->danoMin = 250;
 };
 
 void Armas::GarraLetal()
 {
-    this->danoMax = 300;
-    this->danoMin = 100;
+    this->danoMax = 350;
+    this->danoMin = 200;
 };
 
 void Armas::Porrete()
 {
-    this->danoMax = 380;
-    this->danoMin = 180;
+    this->danoMax = 400;
+    this->danoMin = 280;
 };
 
 void Armas::TridenteSagrado()

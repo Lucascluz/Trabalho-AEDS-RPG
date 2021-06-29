@@ -72,7 +72,7 @@ int combatMenu()
         vetorPersona2->retornaVidaMana();
 
         cout << "\n";
-        bulkathos = (rand() % 50) + 1;
+        bulkathos = (rand() % 20) + 1;
         if (bulkathos == 1)
         {
             vetorArma->Bulkathos();
@@ -113,7 +113,7 @@ int combatMenu()
                 switch (classe1)
                 {
                 case 2:
-                    cout << "\n\t1 - Intoxicacao \t2 - Tempestade"
+                    cout << "\n\t1 - Intoxicacao (10Mp) \t2 - Tempestade(12Mp)"
                          << "\n Escolha sua Magia: ";
                     cin >> choiceMagia;
 
@@ -133,12 +133,12 @@ int combatMenu()
                     }
                     else
                     {
-                        vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                        vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                     }
                     break;
 
                 case 3:
-                    cout << "\n1 - Bio   2 - Cura   3 - Flama Gelada   4 - Intoxicacao   5 - Tempestade"
+                    cout << "\n1 - Bio (18Mp)  2 - Cura (6Mp)   3 - Flama Gelada (16Mp)  4 - Intoxicacao (10Mp)  5 - Tempestade (12Mp)"
                          << "\n Escolha sua Magia: ";
                     cin >> choiceMagia;
 
@@ -153,7 +153,7 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                            vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                         }
                         break;
                     case 2:
@@ -178,7 +178,7 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                            vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                         }
                         break;
                     case 4:
@@ -190,7 +190,7 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                            vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                         }
                         break;
                     case 5:
@@ -202,14 +202,14 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                            vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                         }
                         break;
                     }
                     break;
 
                 case 4:
-                    cout << "\n\t1 - Flama Gelada \t2 - Tempestade"
+                    cout << "\n\t1 - Flama Gelada (10Mp) \t2 - Tempestade Mp(12)"
                          << "\n Escolha sua Magia: ";
                     cin >> choiceMagia;
 
@@ -223,14 +223,14 @@ int combatMenu()
                         break;
                     }
 
-                    if (vetorPersona->retornaMana(vetorMagia->retornaCusto()) <= 0)
+                    if(vetorPersona->retornaMana(vetorMagia->retornaCusto()) <= 0)
                     {
                         cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                         vetorPersona->recuperaMana();
                     }
                     else
                     {
-                        vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                        vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                     }
                     break;
                 }
@@ -244,7 +244,7 @@ int combatMenu()
                 }
                 else
                 {
-                    vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()) * vetorPersona->verificaMana()));
+                    vetorPersona->verificaMana() * (vetorPersona2->recebeDanoMagia((vetorMagia->aplicaDanoMagia(vetorPersona->retornaMagia()))));
                 }
             }
 
@@ -393,7 +393,7 @@ int combatMenu()
             vetorPersona->retornaVidaMana();
 
             cout << "\n";
-            bulkathos = (rand() % 50) + 1;
+            bulkathos = (rand() % 20) + 1;
             if (bulkathos == 1)
             {
                 vetorArma2->Bulkathos();
@@ -434,7 +434,7 @@ int combatMenu()
                     switch (classe2)
                     {
                     case 2:
-                        cout << "\n\t1 - Intoxicacao \t2 - Tempestade"
+                        cout << "\n\t1 - Intoxicacao (10Mp) \t2 - Tempestade (12Mp)"
                              << "\n Escolha sua Magia: ";
                         cin >> choiceMagia;
 
@@ -454,12 +454,12 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                            vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                         }
                         break;
 
                     case 3:
-                        cout << "\n1 - Bio   2 - Cura   3 - Flama Gelada   4 - Intoxicacao   5 - Tempestade"
+                        cout << "\n1 - Bio (18Mp)   2 - Cura (6Mp)   3 - Flama Gelada (16Mp)   4 - Intoxicacao (10Mp)   5 - Tempestade (12Mp)"
                              << "\n Escolha sua Magia: ";
                         cin >> choiceMagia;
 
@@ -474,7 +474,7 @@ int combatMenu()
                             }
                             else
                             {
-                                vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                                vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                             }
                             break;
                         case 2:
@@ -499,7 +499,7 @@ int combatMenu()
                             }
                             else
                             {
-                                vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                                vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                             }
                             break;
                         case 4:
@@ -511,7 +511,7 @@ int combatMenu()
                             }
                             else
                             {
-                                vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                                vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                             }
                             break;
                         case 5:
@@ -523,14 +523,14 @@ int combatMenu()
                             }
                             else
                             {
-                                vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                                vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                             }
                             break;
                         }
                         break;
 
                     case 4:
-                        cout << "\n\t1 - Flama Gelada \t2 - Tempestade"
+                        cout << "\n\t1 - Flama Gelada (16Mp) \t2 - Tempestade (12Mp)"
                              << "\n Escolha sua Magia: ";
                         cin >> choiceMagia;
 
@@ -550,7 +550,7 @@ int combatMenu()
                         }
                         else
                         {
-                            vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                            vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                         }
                         break;
                     }
@@ -564,7 +564,7 @@ int combatMenu()
                     }
                     else
                     {
-                        vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()) * vetorPersona2->verificaMana()));
+                        vetorPersona2->verificaMana() * (vetorPersona->recebeDanoMagia((vetorMagia2->aplicaDanoMagia(vetorPersona2->retornaMagia()))));
                     }
                 }
                 vetorPersona2->retornaMana(vetorMagia2->retornaCusto());

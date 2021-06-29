@@ -9,38 +9,38 @@ Magia::Magia()
 
 void Magia::HalitoDeFogo()
 {
-    this->danoMagia = 400;
-    this->gastoMana = 12;
+    this->danoMagia = 500;
+    this->gastoMana = 7;
 };
 
 void Magia::Bio()
 {
-    this->danoMagia = 360;
-    this->gastoMana = 14;
+    this->danoMagia = 480;
+    this->gastoMana = 9;
 };
 
 void Magia::Cura()
 {
     this->danoMagia = 0;
-    this->gastoMana = 16;
+    this->gastoMana = 3;
 };
 
 void Magia::FlamaGelada()
 {
-    this->danoMagia = 320;
-    this->gastoMana = 14;
+    this->danoMagia = 400;
+    this->gastoMana = 8;
 };
 
 void Magia::Intoxicacao()
 {
-    this->danoMagia = 280;
-    this->gastoMana = 12;
+    this->danoMagia = 320;
+    this->gastoMana = 5;
 };
 
 void Magia::Tempestade()
 {
-    this->danoMagia = 200;
-    this->gastoMana = 12;
+    this->danoMagia = 360;
+    this->gastoMana = 6;
 };
 
 int Magia::aplicaDanoMagia(int magia)
