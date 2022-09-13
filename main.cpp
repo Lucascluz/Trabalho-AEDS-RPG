@@ -4,9 +4,9 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "Bibliotecas/character.h"
-#include "Bibliotecas/weapon.h"
-#include "Bibliotecas/magic.h"
+#include "Bibliotecas\character.h"
+#include "Bibliotecas\weapon.h"
+#include "Bibliotecas\magic.h"
 
 using namespace std;
 
@@ -223,7 +223,7 @@ int combatMenu()
                         break;
                     }
 
-                    if(vetorPersona->retornaMana(vetorMagia->retornaCusto()) <= 0)
+                    if (vetorPersona->retornaMana(vetorMagia->retornaCusto()) <= 0)
                     {
                         cout << "\n\tMANA INSUFICIENTE PARA ESTA MAGIA!\n";
                         vetorPersona->recuperaMana();

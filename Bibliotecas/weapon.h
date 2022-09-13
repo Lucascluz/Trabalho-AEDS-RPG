@@ -23,7 +23,6 @@ public:
     int aplicaDano(int forca);
     int danoBulkathos(int forca);
     void retornaStatus();
-
     void GarraLetal();
     void TridenteSagrado();
     void EspadaBarroca();
@@ -32,7 +31,6 @@ public:
     void Besta();
     void EsferaDeAtaque();
     void Bulkathos();
-
 
     ~Armas();
 };

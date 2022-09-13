@@ -1,6 +1,6 @@
-#include "Bibliotecas/character.h"
-#include "Bibliotecas/weapon.h"
-#include "Bibliotecas/magic.h"
+#include "Bibliotecas\character.h"
+#include "Bibliotecas\weapon.h"
+#include "Bibliotecas\magic.h"
 
 Armas::Armas()
 {

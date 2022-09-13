@@ -1,6 +1,6 @@
-#include "Bibliotecas/character.h"
-#include "Bibliotecas/weapon.h"
-#include "Bibliotecas/magic.h"
+#include "Bibliotecas\character.h"
+#include "Bibliotecas\weapon.h"
+#include "Bibliotecas\magic.h"
 
 Personagem::Personagem()
 {
@@ -167,16 +167,16 @@ void Personagem::recuperaVida()
 
 void Personagem::recuperaMana()
 {
-  if ((this->mana + 10) >= this->manaMax)
+    if ((this->mana + 10) >= this->manaMax)
         this->mana = this->manaMax;
     else
-        this->mana = this->mana + 10;  
+        this->mana = this->mana + 10;
 }
 
 void Personagem::retornaVidaMana()
 {
     cout << "   " << this->vida << "Hp | " << this->mana << "Mp"
-         << "   ";
+        << "   ";
 };
 
 int Personagem::retornaForca()
@@ -211,9 +211,9 @@ int Personagem::retornaMagia()
 int Personagem::verificaMana()
 {
     if (mana == manaMax)
-    return 2;
+        return 2;
     else
-    return 1;
+        return 1;
 };
 
 void Personagem::retornaAtributos()
